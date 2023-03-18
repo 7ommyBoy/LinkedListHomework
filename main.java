@@ -11,7 +11,7 @@
 public class Main {
     public static void main(String[] args) {
 
-        // #1
+//        // #1
 //        // We created the two sorted linked lists. head1 and head2
 //        ListNode head1 = new ListNode(1);
 //        head1.next = new ListNode(3);
@@ -29,7 +29,7 @@ public class Main {
 //        while (mergedList != null) {
 //            System.out.print(mergedList.val + " ");
 //            mergedList = mergedList.next;
-
+//        }
 
         //#2
 //        ListNode head = new ListNode(1);
@@ -64,6 +64,17 @@ public class Main {
 
         //#4
 
+//        ListNode head = new ListNode(1);
+//        head.next = new ListNode(2);
+//        head.next.next = new ListNode(3);
+//        head.next.next.next = new ListNode(4);
+//
+//        head = swapElements(head, 2, 4);
+//        while(head != null) {
+//            System.out.print(head.val + " ");
+//            head = head.next;
+//        }
+
 
 
 
@@ -85,17 +96,15 @@ public class Main {
 //        }
 
         //#6
-//        ListNode head = new ListNode(1);
-//        head.next = new ListNode(2);
-//        head.next.next = new ListNode(3);
-//        head.next.next.next = new ListNode(4);
-//        head.next.next.next.next = new ListNode(5);
-//        head.next.next.next.next.next = new ListNode(6);
-//
-//
-//
-//        ListNode middleNode = middleNode(head);
-//        System.out.println(middleNode.val);
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(2);
+        head.next.next = new ListNode(3);
+        head.next.next.next = new ListNode(4);
+        head.next.next.next.next = new ListNode(5);
+        head.next.next.next.next.next = new ListNode(6);
+
+            ListNode middleNode = middleNode(head);
+            System.out.println(middleNode.val);
 
 
 }
@@ -195,7 +204,7 @@ public class Main {
         // Create another variable (Reference)
         ListNode current_node = head;
         // This checks if the current_node and current_node.next is not equal to null then we can assure that
-        // we have not reached to the end of the linkedlist and to saftely ensure the saftey of the next node.
+        // we have not reached to the end of the linkedlist and to safely ensure the safety of the next node.
         while (current_node != null && current_node.next != null) {
             // If the current node next is equal to the value then we move over to the next next node.
             if (current_node.next.val == val) {
@@ -217,6 +226,19 @@ public class Main {
      * Returns the head of the resulting list.
      */
     public static ListNode swapElements(ListNode head, int i, int j) {
+        // Edge Cases. If head does not equal to null and if i is equal j. We return head if not we continue.
+        if (head == null || i == j) {
+            return head;
+        }
+        //The idea we had was to find the positions at i and j by using prev1, and current1 for i and
+        // prev2, and current2 for j.
+        // Then somehow use next after. But got confused trying to find(connect) the positions.
+        // After we would create something to swap the nodes and then return the head.
+        ListNode prev1 = null;
+        ListNode current1= head;
+        ListNode prev2 = null;
+        ListNode current2= head;
+
         return head;
     }
 
@@ -229,18 +251,18 @@ public class Main {
      reversed list.
      */
     public static ListNode reverseList(ListNode head) {
-        // Created two ListNode variables prev, and curr. prev will soon point to the reveresed list.
-        // Current will traverse in the orginial list
+        // Created two ListNode variables prev, and curr. prev will soon point to the reversed list.
+        // Current will traverse in the original list
         ListNode prev = null;
         ListNode current = head;
-        // While current doesnt not equal to null
+        // While current doesn't not equal to null
         while (current != null) {
             // Create another ListNode called next, which will be current's next
             ListNode next = current.next;
             // This will update next pointer for current to point to the prev node.
             // It reverses the direction of next pointer for current and inserts it at the beginning of the reversed list
             current.next = prev;
-            // This will update the nodes for prev to be current and current to be next in the reveresed list.
+            // This will update the nodes for prev to be current and current to be next in the reversed list.
             prev = current;
             current = next;
         }
@@ -279,4 +301,3 @@ public class Main {
 
     }
 }
-
